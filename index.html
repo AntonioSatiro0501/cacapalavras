@@ -2,6 +2,10 @@
 <html>
 <head>
   <style>
+    body {
+      background-color: #050505;
+    }
+
     .fase { display: none; }
     .fase.ativa { display: block; }
   </style>
@@ -11,38 +15,45 @@
   <div id="app"></div>
 
   <script>
-    // ===== "ESTADO GLOBAL" =====
     let estadoAtual = 1;
 
-    // ===== DADOS DE CADA FASE (separado da lógica) =====
-    const fases = {
+    function checarRespostaEstado1(reposta) {
+      const resposta = reposta.trim().toLowerCase();
+      if (resposta == "uwaw" ) {
+        avancar();
+      }
+    }
+
+    const estados = {
       1: {
-        render: () => `</p><button onclick="avancar()">Próxima</button>`
+        render: () => `
+          <input id = uwaw type="text"/>
+          <button onclick="checarRespostaEstado1(document.getElementById('uwaw').value)">Enviar</button>
+          <img src= "cacapalavras.png" style = display:block; margin:auto;>
+        `
       },
       2: {
-        render: () => `</p><button onclick="avancar()">Próxima</button>`
+        render: () => ``
       },
       3: {
         render: () => ``
       }
     };
 
-    // ===== FUNÇÕES DE TRANSIÇÃO =====
     function avancar() {
       estadoAtual++;
       renderizar();
     }
 
     function renderizar() {
-      document.getElementById('app').innerHTML = fases[estadoAtual].render();
+      document.getElementById('app').innerHTML = estados[estadoAtual].render();
     }
 
-    // ===== "MAIN" — o ponto de entrada, chamado explicitamente =====
     function main() {
-      renderizar(); // desenha a fase 1 ao carregar
+      renderizar(); 
     }
 
-    main(); // chamada no fim do script, funciona como seu "main()"
+    main();
   </script>
 
 </body>
