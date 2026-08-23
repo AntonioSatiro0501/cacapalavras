@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .fase { display: none; }
+    .fase.ativa { display: block; }
+  </style>
+</head>
+<body>
+
+  <div id="app"></div>
+
+  <script>
+    // ===== "ESTADO GLOBAL" =====
+    let estadoAtual = 1;
+
+    // ===== DADOS DE CADA FASE (separado da lógica) =====
+    const fases = {
+      1: {
+        render: () => `<h2>Fase 1</h2><p>Conteúdo...</p><button onclick="avancar()">Próxima</button>`
+      },
+      2: {
+        render: () => `<h2>Fase 2</h2><p>Conteúdo...</p><button onclick="avancar()">Próxima</button>`
+      },
+      3: {
+        render: () => `<h2>Fase 3</h2><p>Fim!</p>`
+      }
+    };
+
+    // ===== FUNÇÕES DE TRANSIÇÃO =====
+    function avancar() {
+      estadoAtual++;
+      renderizar();
+    }
+
+    function renderizar() {
+      document.getElementById('app').innerHTML = fases[estadoAtual].render();
+    }
+
+    // ===== "MAIN" — o ponto de entrada, chamado explicitamente =====
+    function main() {
+      renderizar(); // desenha a fase 1 ao carregar
+    }
+
+    main(); // chamada no fim do script, funciona como seu "main()"
+  </script>
+
+</body>
+</html>
