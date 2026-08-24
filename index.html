@@ -22,7 +22,7 @@
     let estadoAtual = 1;
     let subEstadoAtual = 0;
 
-    const subEstados3 = [
+    const subEstados = [
       { resposta: 'cometa', imagem: 'cacapalavras.png', },
       { resposta: 'cosmos', imagem: 'cacapalavras.png' },
       { resposta: 'escura', imagem: 'cacapalavras.png' },
@@ -42,14 +42,14 @@
     }
 
     function checarSubResposta(tentativa) {
-      const respostaAtual = subEstados3[subEstadoAtual].resposta;
+      const respostaAtual = subEstados[subEstadoAtual].resposta;
       const tentativaFiltrada = tentativa.trim().toLowerCase();
 
       if (respostaAtual !== tentativaFiltrada) {
         return;
       }
 
-      if (subEstadoAtual === subEstados3.length - 1) {
+      if (subEstadoAtual === subEstados.length - 1) {
         avancar();
         return;
       }
@@ -79,11 +79,9 @@
       },
       3: {
         render: () => {
-          const subEstado = subEstados3[subEstadoAtual];
-
-          return `
-            <img src="${subEstado.imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
-            <input id="tentativaSubEstado" type="text" placeholder="${subEstado3[subEstadoAtual].resposta.length} letras"/>
+          `
+            <img src="${subEstados[subEstadoAtual].imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
+            <input id="tentativaSubEstado" type="text" placeholder="${subEstados[subEstadoAtual].resposta.length} letras"/>
             <button onclick="checarSubResposta(document.getElementById('tentativaSubEstado').value)">
               Confirmar
             </button>
