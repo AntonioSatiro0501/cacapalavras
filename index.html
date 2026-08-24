@@ -19,7 +19,7 @@
 
     function checarResposta(reposta, tentativa) {
       const tentativaFiltrada = tentativa.trim().toLowerCase();
-      if (resposta == tentativaFiltrada) {
+      if (resposta === tentativaFiltrada) {
         avancar();
       }
     }
@@ -38,7 +38,6 @@
           <button onclick="checarResposta('espiral', document.getElementById('tentativa').value)">?</button>
           <audio controls style="display: block; margin: 24px auto 12px;">
             <source src="correnteoceanica.mp3" type="audio/mpeg">
-            Seu navegador não suporta áudio.
           </audio>
           <a href="correnteoceanica.mp3" download="correnteoceanica.mp3" aria-label="Baixar áudio" style="display: block; width: max-content; margin: auto; padding: 8px 12px; color: white; background: #242424; text-decoration: none; border-radius: 6px;">
             <span role="img" aria-label="Caveira">💀</span> Baixar áudio
