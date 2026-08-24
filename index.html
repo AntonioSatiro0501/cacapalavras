@@ -78,7 +78,7 @@
           </a>`
       },
       3: {
-        render: () => {
+        render: () =>
           `
             <img src="${subEstados[subEstadoAtual].imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
             <input id="tentativaSubEstado" type="text" placeholder="${subEstados[subEstadoAtual].resposta.length} letras"/>
@@ -86,7 +86,6 @@
               Confirmar
             </button>
           `;
-        }
       },
       4: {
         render: () => ``
