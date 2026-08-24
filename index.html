@@ -18,8 +18,8 @@
     let estadoAtual = 1;
 
     function checarResposta(reposta, tentativa) {
-      const tentativa = tentativa.trim().toLowerCase();
-      if (resposta == tentativa) {
+      const tentativaFiltrada = tentativa.trim().toLowerCase();
+      if (resposta == tentativaFiltrada) {
         avancar();
       }
     }
