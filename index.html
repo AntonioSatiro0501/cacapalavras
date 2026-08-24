@@ -17,9 +17,9 @@
   <script>
     let estadoAtual = 1;
 
-    function checarRespostaEstado1(reposta) {
-      const resposta = reposta.trim().toLowerCase();
-      if (resposta == "uwaw" ) {
+    function checarResposta(reposta, tentativa) {
+      const tentativa = tentativa.trim().toLowerCase();
+      if (resposta == tentativa) {
         avancar();
       }
     }
@@ -27,13 +27,22 @@
     const estados = {
       1: {
         render: () => `
-          <input id = uwaw type="text"/>
-          <button onclick="checarRespostaEstado1(document.getElementById('uwaw').value)">?</button>
+          <input id = tentativa type="text"/>
+          <button onclick="checarResposta("uwaw", document.getElementById('tentativa').value)">?</button>
           <img src="cacapalavras.png" alt="Caça-palavras" style="display: block; margin: auto; opacity: 0.1;">
         `
       },
       2: {
-        render: () => ``
+        render: () => 
+          `<input id = tentativa type="text"/>
+          <button onclick="checarResposta('espiral', document.getElementById('tentativa').value)">?</button>
+          <audio controls style="display: block; margin: 24px auto 12px;">
+            <source src="correnteoceanica.mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+          </audio>
+          <a href="correnteoceanica.mp3" download="correnteoceanica.mp3" aria-label="Baixar áudio" style="display: block; width: max-content; margin: auto; padding: 8px 12px; color: white; background: #242424; text-decoration: none; border-radius: 6px;">
+            <span role="img" aria-label="Caveira">💀</span> Baixar áudio
+          </a>`
       },
       3: {
         render: () => ``
