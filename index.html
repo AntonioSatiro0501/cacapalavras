@@ -23,15 +23,15 @@
     let subEstadoAtual = 0;
 
     const subEstados3 = [
-      { resposta: 'cometa', imagem: 'cacapalavras.png', },
-      { resposta: 'cosmos', imagem: 'cacapalavras.png' },
-      { resposta: 'escura', imagem: 'cacapalavras.png' },
-      { resposta: 'cadente', imagem: 'cacapalavras.png' },
-      { resposta: 'nebulosa', imagem: 'cacapalavras.png' },
-      { resposta: 'supernova', imagem: 'cacapalavras.png' },
-      { resposta: 'tempo', imagem: 'cacapalavras.png' },
-      { resposta: 'eclipse', imagem: 'cacapalavras.png' },
-      { resposta: 'natural', imagem: 'cacapalavras.png' }
+      { resposta: 'cometa', imagem: 'come.png', },
+      { resposta: 'cosmos', imagem: 'espaco.png' },
+      { resposta: 'escura', imagem: 'materia.png' },
+      { resposta: 'cadente', imagem: 'astro.png' },
+      { resposta: 'nebulosa', imagem: 'buraco.png' },
+      { resposta: 'supernova', imagem: 'chefe.png' },
+      { resposta: 'tempo', imagem: 'zona.png' },
+      { resposta: 'eclipse', imagem: 'ovoidal.png' },
+      { resposta: 'natural', imagem: 'aristocracia.png' }
     ];
 
     function checarResposta(resposta, tentativa) {
@@ -42,14 +42,14 @@
     }
 
     function checarSubResposta(tentativa) {
-      const respostaAtual = subEstados3[subEstadoAtual].resposta;
+      const respostaAtual = subEstados[subEstadoAtual].resposta;
       const tentativaFiltrada = tentativa.trim().toLowerCase();
 
       if (respostaAtual !== tentativaFiltrada) {
         return;
       }
 
-      if (subEstadoAtual === subEstados3.length - 1) {
+      if (subEstadoAtual === subEstados.length - 1) {
         avancar();
         return;
       }
@@ -78,17 +78,14 @@
           </a>`
       },
       3: {
-        render: () => {
-          const subEstado = subEstados3[subEstadoAtual];
-
-          return `
-            <img src="${subEstado.imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
-            <input id="tentativaSubEstado" type="text" placeholder="${subEstado3[subEstadoAtual].resposta.length} letras"/>
+        render: () =>
+          `
+            <img src="${subEstados[subEstadoAtual].imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
+            <input id="tentativaSubEstado" type="text" placeholder="${subEstados[subEstadoAtual].resposta.length} letras"/>
             <button onclick="checarSubResposta(document.getElementById('tentativaSubEstado').value)">
               Confirmar
             </button>
-          `;
-        }
+          `
       },
       4: {
         render: () => ``
