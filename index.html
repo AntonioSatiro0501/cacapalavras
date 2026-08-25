@@ -10,6 +10,17 @@
       max-width: 100%;
     }
 
+    .subestado-conteudo img {
+      display: block;
+      margin: 0 auto 16px;
+    }
+
+    .subestado-conteudo input,
+    .subestado-conteudo button {
+      display: block;
+      margin: 8px auto;
+    }
+
     .fase { display: none; }
     .fase.ativa { display: block; }
   </style>
@@ -80,11 +91,13 @@
       3: {
         render: () =>
           `
-            <img src="${subEstados[subEstadoAtual].imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
-            <input id="tentativaSubEstado" type="text" placeholder="${subEstados[subEstadoAtual].resposta.length} letras"/>
-            <button onclick="checarSubResposta(document.getElementById('tentativaSubEstado').value)">
-              Confirmar
-            </button>
+            <div class="subestado-conteudo">
+              <img src="${subEstados[subEstadoAtual].imagem}" alt="Imagem do subestado ${subEstadoAtual + 1}">
+              <input id="tentativaSubEstado" type="text" placeholder="${subEstados[subEstadoAtual].resposta.length} letras"/>
+              <button onclick="checarSubResposta(document.getElementById('tentativaSubEstado').value)">
+                Confirmar
+              </button>
+            </div>
           `
       },
       4: {
