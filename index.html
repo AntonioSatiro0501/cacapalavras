@@ -72,6 +72,9 @@
     const estados = {
       1: {
         render: () => `
+          <p style="color: white">
+            *puzzles podem conter referencias a campanha
+          </p>
           <input id = tentativa type="text"/>
           <button onclick="checarResposta('uwaw', document.getElementById('tentativa').value)">?</button>
           <img src="cacapalavras.png" alt="Caça-palavras" style="display: block; margin: auto; opacity: 0.1;">
